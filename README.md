@@ -1,6 +1,6 @@
 # Hang In There
 
-A boilerplate repo. 
+A boilerplate repo.
 
 ## Set Up
 
@@ -16,7 +16,18 @@ A boilerplate repo.
 
 ![screenshot of main page showing poster](/readme-imgs/homepage.png)
 
-- When the page loads, we should see a poster with a randomly selected image, title, and quote
+- When the page loads, we should see a poster with a randomly selected image, title, and quote.
+  - Pseudocode `querySelecting` the HTML classes for quote, title, and poster. Pseudocode the `Math.random` function. Pseudocode the `eventListeners` for the class, quote, and title `load` actions.
+  - Add `querySelectors` for all classes on `index.html`.
+  - Create a `loadRandom` function that changes `innerText` of `title` and `quote` and `src` of `image`.
+  - Add `eventListeners` for each variable on `load` that takes in a second argument of the `loadRandom` function.
+  - Create `loadRandom` function to pass `titles`, `quotes`, and `images` arrays through the `getRandomIndex` function.
+  - ![On load random](//media.giphy.com/media/llrPijEOL6KzZY0vqJ/giphy.gif)
+
+- Every time the user clicks the Show Random Poster button, a new random poster is displayed.
+  - Create an  `eventListener` on click for the `ShowRandom` variable.
+  - ![On click random](https://giphy.com/gifs/QXPiCJKnGTuTVqSDl6/fullscreen)
+
 
 ### Iteration 1 - Switching Views
 
@@ -27,9 +38,15 @@ Saved posters page (once working with extra saved posters):
 ![screenshot of saved posters page](/readme-imgs/saved.png)
 
 - When a user clicks the "Make Your Own Poster" button, we should see the form, and the main poster should be hidden
+  - Create a function that shows the the form by removing the `hidden` class from `form` and adding the `hidden` class on `poster`.
+  - ![On click form](https://giphy.com/gifs/dyXjIjgfMfh2H32XO4/fullscreen)
 - When a user clicks the "View Saved Posters" button, we should see the saved posters area, and the main poster should be hidden
+  - Create a function that shows the saved poster page by removing the `hidden` class from `savedPosters` and adding the `hidden` class on `poster`.
+  - ![On click saved](https://giphy.com/gifs/hr3GBPAXmiTJLg5EzJ/fullscreen)
 - When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the main poster section
+  - Create a function that returns back to the main page from the saved page by adding the `hidden` class from `savedPoster` and removing the `hidden` class on `poster`. Then Create another function that does the same thing from the form page but this time adding the `hidden` class to `showMain`.
 - In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
+  - ![On click saved](https://giphy.com/gifs/WRiLrR4odmtOfzEs1l)
 
 _Hint: go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place_
 
