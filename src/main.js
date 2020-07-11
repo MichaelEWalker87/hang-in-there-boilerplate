@@ -8,8 +8,13 @@ var form = document.querySelector('.poster-form');
 var poster = document.querySelector('.main-poster');
 var showSaved = document.querySelector(`.show-saved`)
 var savedPoster = document.querySelector('.saved-posters');
+var backToMain = document.querySelector('.back-to-main');
 var showMain = document.querySelector('.show-main');
 var savePoster = document.querySelector('.save-poster');
+var makePoster = document.querySelector('.make-poster');
+var inputPosterImg = document.querySelector('#poster-image-url');
+var inputPosterTitle = document.querySelector('#poster-title');
+var inputPosterQuote = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -109,13 +114,9 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-// var savedPosters = [
-//   makePoster(
-//     "https://i.giphy.com/media/5LU6ZcEGBbhVS/giphy.gif",
-//     "Optimism",
-//     "Keep a joyful heart!"
-//   )
-// ];
+
+var currentPoster;
+var savedPosters = [];
 
 
 // event listeners go here 👇
@@ -125,7 +126,7 @@ showForm.addEventListener('click', loadForm);
 showSaved.addEventListener('click', loadSaved);
 backToMain.addEventListener('click', loadMain);
 showMain.addEventListener('click', nvmTakeMeBack);
-
+makePoster.addEventListener('click', showMyPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -133,14 +134,23 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
+function inputIndex() {
+  images.unshift(inputPosterImg.value);
+  titles.unshift(inputPosterTitle.value);
+  quotes.unshift(inputPosterQuote.value);
+}
+
 function loadRandom() {
-  title.innerText = titles[getRandomIndex(titles)];
-  quote.innerText = quotes[getRandomIndex(quotes)];
-  image.src = images[getRandomIndex(images)];
+  var randomImage = images[getRandomIndex(images)];
+  var randomTitle = titles[getRandomIndex(titles)];
+  var randomQuote = quotes[getRandomIndex(quotes)];
+  randomPoster = new Poster(randomImage, randomTitle, randomQuote);
+  title.innerText = randomTitle;
+  quote.innerText = randomQuote;
+  image.src = randomImage;
 };
 
-loadRandom();
-
+ loadRandom();
 
 function loadForm() {
   form.classList.remove('hidden');
@@ -159,15 +169,17 @@ function loadMain() {
 };
 
 function nvmTakeMeBack() {
-  showMain.classList.add('remove');
+  form.classList.add('hidden');
   poster.classList.remove('hidden');
 };
 
-
-
-
-//add new event listener to showForm on click
-//add querySelector for poster-hidden-showForm
-// to show - document.getElementById("element").style.display = "block";
-// to hide - document.getElementById("element").style.display = "none";
-//main-poster querySelector
+function showMyPoster(event) {
+  event.preventDefault();
+  inputIndex()
+  form.classList.add('hidden');
+  poster.classList.remove('hidden');
+  title.innerText = titles[0];
+  quote.innerText = quotes[0];
+  image.src = images[0];
+  madePoster = new Poster(images[0], titles[0], quotes[0]);
+};
