@@ -183,3 +183,12 @@ function showMyPoster(event) {
   image.src = images[0];
   madePoster = new Poster(images[0], titles[0], quotes[0]);
 };
+
+// Add eventListener to savePoster on click.
+// Create an object instance of Poster Class for currentPoster that takes in the first value of the displayed poster
+// Use an unshift method to add those values to the savedPosters array.
+// Create an if statement to stop duplicates
+// Create a querySelectorfor the saved-posters-grid class. *
+// Create a querySelector for mini-poster. *
+
+// Can we target an element within a class on our CSS file
