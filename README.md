@@ -61,20 +61,36 @@ Saved posters page (once working with extra saved posters):
 
 _Hint: go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place_
 
-## Iteration 2 - Creating a New Poster
+### Iteration 2 - Creating a New PosterForm being filled out:
 
-Form being filled out:
 ![screenshot of form](/readme-imgs/form.png)
 
 Once poster is saved:
 ![screenshot of result](/readme-imgs/form-result.png)
 
-- On the new poster form view, users should be able to fill out the three input fields and then hit the save button
-- When the save button is clicked, several things will happen:
-  - Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
-  - Use the values from the inputs to create a new instance of our Poster class
-  - Change back to the main poster view (hiding the form view again)
-  - Display the newly created poster image, title, and quote in the main view
+#### On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+
+- ##### When the save button is clicked, several things will happen:
+
+  - Add `eventListener` on click to `makePoster` variable with a second argument of `showPoster`
+
+  - ##### Save the submitted data into the respective arrays (image URL into the images array, etc) so that future random posters can use the user-created data
+
+  - Create `querySelectors` targeting the IDs of `poster-image-url`, `poster-title`, and `poster-quote`.
+
+  - Create a function called `inputIndex` that runs a the `unshift` method for `images`, `titles` and `quotes` arrays and adding new input values from the form.
+
+  - ##### Use the values from the inputs to create a new instance of our Poster class.
+
+  - Create a function for `showMyPoster` that targets `poster-image-url`, `poster-title`, and `poster-quote` and then creates an object instance of the `Poster` class called `madePoster` that takes in those input values.
+
+  - ##### Change back to the main poster view (hiding the form view again)
+
+  - Add the `hidden` class back to the `form` variable, remove the `hidden` class to the `poster` variable, and uses the `event.preventDefault` method to stop the page from refreshing.
+
+  - ##### Display the newly created poster image, title, and quote in the main view
+
+  - Use `innerText` method on `title` and `quote` variables to show the first element of our `titles` and `quotes` arrays. Use the `src` method to do the same thing for the `images` array.
 
 ## Iteration 3 - Saving & Viewing Posters
 
