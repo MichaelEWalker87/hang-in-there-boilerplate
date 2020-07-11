@@ -115,7 +115,7 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 
-var currentPoster = new Project(images[0], titles[0], quotes[0]);
+var currentPoster;
 var savedPosters = [];
 
 
@@ -145,10 +145,14 @@ function loadRandom() {
   var randomImage = images[getRandomIndex(images)];
   var randomTitle = titles[getRandomIndex(titles)];
   var randomQuote = quotes[getRandomIndex(quotes)];
-  randomPoster = new Poster(randomImage, randomTitle, randomQuote);
-  title.innerText = randomTitle;
-  quote.innerText = randomQuote;
-  image.src = randomImage;
+  currentPoster = new Poster(randomImage, randomTitle, randomQuote);
+  displayCurrent(currentPoster);
+};
+
+function displayCurrent(posterCurrent) {
+  title.innerText = posterCurrent.title;
+  quote.innerText = posterCurrent.quote;
+  image.src = posterCurrent.imageURL;
 };
 
  loadRandom();
@@ -182,15 +186,14 @@ function showMyPoster(event) {
   title.innerText = titles[0];
   quote.innerText = quotes[0];
   image.src = images[0];
-  madePoster = new Poster(images[0], titles[0], quotes[0]);
+  currentPoster = new Poster(images[0], titles[0], quotes[0]);
 };
 
 function saveCurrentPoster() {
-  for (var i = 0; i < savedPosters.length; i++) {
-    if (currentPoster !== savedPosters[i]) {
-      savedPosters.unshift(currentPoster);
-    }
-  }
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.unshift(currentPoster);
+    console.log(titles);
+  };
 };
 
 
@@ -199,6 +202,6 @@ function saveCurrentPoster() {
 // Create an if statement to stop duplicates*
 // Use an unshift method to add those values to the savedPosters array.*
 // Create a querySelectorfor the saved-posters-grid class.
-// Create a querySelector for mini-poster. 
+// Create a querySelector for mini-poster.
 
 // Can we target an element within a class on our CSS file
