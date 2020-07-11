@@ -126,7 +126,7 @@ showForm.addEventListener('click', loadForm);
 showSaved.addEventListener('click', loadSaved);
 backToMain.addEventListener('click', loadMain);
 showMain.addEventListener('click', nvmTakeMeBack);
-makePoster.addEventListener('click', showMyPoster);
+makePoster.addEventListener('click', inputIndex);
 savePoster.addEventListener('click', saveCurrentPoster);
 
 // functions and event handlers go here 👇
@@ -134,12 +134,6 @@ savePoster.addEventListener('click', saveCurrentPoster);
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
-
-function inputIndex() {
-  images.unshift(inputPosterImg.value);
-  titles.unshift(inputPosterTitle.value);
-  quotes.unshift(inputPosterQuote.value);
-}
 
 function loadRandom() {
   var randomImage = images[getRandomIndex(images)];
@@ -178,21 +172,19 @@ function nvmTakeMeBack() {
   poster.classList.remove('hidden');
 };
 
-function showMyPoster(event) {
+function inputIndex(event) {
   event.preventDefault();
-  inputIndex()
-  form.classList.add('hidden');
-  poster.classList.remove('hidden');
-  title.innerText = titles[0];
-  quote.innerText = quotes[0];
-  image.src = images[0];
+  images.unshift(inputPosterImg.value);
+  titles.unshift(inputPosterTitle.value);
+  quotes.unshift(inputPosterQuote.value);
   currentPoster = new Poster(images[0], titles[0], quotes[0]);
+  nvmTakeMeBack();
+  displayCurrent(currentPoster);
 };
 
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    console.log(titles);
   };
 };
 
