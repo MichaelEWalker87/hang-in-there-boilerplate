@@ -128,8 +128,7 @@ backToMain.addEventListener('click', loadMain);
 showMain.addEventListener('click', nvmTakeMeBack);
 makePoster.addEventListener('click', inputIndex);
 savePoster.addEventListener('click', saveCurrentPoster);
-posterGrid.addEventListener('dbclick', deleteSavedPoster);
-
+posterGrid.addEventListener('dblclick', deleteSavedPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -192,8 +191,13 @@ function saveCurrentPoster() {
 };
 
 function deleteSavedPoster(event) {
-  event.target('.mini-poster');
-  console.log(event.target('.mini-poster'));
+  if (event.target.closest(".mini-poster")) {
+    for (var i = 0; i < savedPosters.length; i++) {
+      if (event.target.closest(".mini-poster").dataset.id == savedPosters[i].id) {
+        savedPosters.splice(i, 1);
+      }
+    }
+  };
 };
 //Add an eventListener to the mini-posters on double-click*
 // create a new function that will be the second argument of the eventListener*
