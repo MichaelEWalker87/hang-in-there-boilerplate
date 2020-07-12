@@ -186,14 +186,17 @@ function inputIndex(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster" id = "${currentPoster.id}"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4></article>`);
+    posterGrid.insertAdjacentHTML('afterbegin', `<article class="mini-poster" data-id="${currentPoster.id}"> <img src="${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4></article>`);
   };
 };
 
 function deleteSavedPoster(event) {
   if (event.target.closest(".mini-poster")) {
+    var htmlMiniPoster = event.target.closest(".mini-poster");
+    console.log(htmlMiniPoster.dataset.id);
+    // console.log(savedPosters[i].id);
     for (var i = 0; i < savedPosters.length; i++) {
-      if (event.target.closest(".mini-poster").dataset.id == savedPosters[i].id) {
+      if (htmlMiniPoster.dataset.id === `${savedPosters[i].id}`) {
         savedPosters.splice(i, 1);
       }
     }
