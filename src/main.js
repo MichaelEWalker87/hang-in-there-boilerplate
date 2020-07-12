@@ -193,15 +193,16 @@ function saveCurrentPoster() {
 function deleteSavedPoster(event) {
   if (event.target.closest(".mini-poster")) {
     var htmlMiniPoster = event.target.closest(".mini-poster");
-    console.log(htmlMiniPoster.dataset.id);
-    // console.log(savedPosters[i].id);
     for (var i = 0; i < savedPosters.length; i++) {
       if (htmlMiniPoster.dataset.id === `${savedPosters[i].id}`) {
-        savedPosters.splice(i, 1);
+      innerHTML = savedPosters.splice(i, 1)
+        // savedPosters.splice(i, 1);
       }
     }
   };
 };
+
+
 //Add an eventListener to the mini-posters on double-click*
 // create a new function that will be the second argument of the eventListener*
 //Research Event Bubbling
