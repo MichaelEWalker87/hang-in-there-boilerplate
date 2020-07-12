@@ -188,12 +188,13 @@ function saveCurrentPoster() {
   };
 };
 
+function makeMiniPoster() {
+  //mini.classlist.add
+};
 
-// Add eventListener to savePoster on click. *
-// Create an object instance of Poster Class for currentPoster that takes in the first value of the displayed poster*
-// Create an if statement to stop duplicates*
-// Use an unshift method to add those values to the savedPosters array.*
-// Create a querySelectorfor the saved-posters-grid class.
-// Create a querySelector for mini-poster.
+// We need to target miniposter in the CSS file and pass values to it and then "show it"
+// To do this we need to make miniposter values in main js
+// add the css view of the grid template from js
 
-// Can we target an element within a class on our CSS file
+//element.insertAdjacentHTML()
+// 'afterbegin': Just inside the element, before its first child.
