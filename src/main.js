@@ -15,6 +15,7 @@ var makePoster = document.querySelector('.make-poster');
 var inputPosterImg = document.querySelector('#poster-image-url');
 var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
+var posterGrid = document.querySelector('.saved-posters-grid')
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -185,12 +186,18 @@ function inputIndex(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
+    posterGrid.insertAdjacentHTML('afterbegin', '<h2 class = "mini-poster">currentPoster.title</h2>')
+    posterGrid.insertAdjacentHTML('afterbegin', '<h4 class = "mini-poster">currentPoster.quote</h4>')
   };
 };
 
-function makeMiniPoster() {
-  //mini.classlist.add
-};
+// function makeMiniPoster() {
+//   posterGrid.insertAdjacentHTML('afterbegin',<h2 class = "mini-poster">currentPoster.title</h2>)
+//   posterGrid.insertAdjacentHTML('afterbegin',<h4 class = "mini-poster">currentPoster.quote</h4>)
+// };
+
+// posterGrid.insertAdjacentHTML('afterbegin',<img class = "mini-poster">currentPoster.image</img>)
+
 
 // We need to target miniposter in the CSS file and pass values to it and then "show it"
 // To do this we need to make miniposter values in main js
