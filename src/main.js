@@ -187,21 +187,5 @@ function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
     posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"><img src = "${currentPoster.imageURL}"><h2>${currentPoster.title}</h2><h4>${currentPoster.quote}</h4></article>` )
-    // posterGrid.insertAdjacentHTML('afterbegin', `<h4 class = "mini-poster">${currentPoster.quote}</h4>`)
   };
 };
-
-// function makeMiniPoster() {
-//   posterGrid.insertAdjacentHTML('afterbegin',<h2 class = "mini-poster">currentPoster.title</h2>)
-//   posterGrid.insertAdjacentHTML('afterbegin',<h4 class = "mini-poster">currentPoster.quote</h4>)
-// };
-
-// posterGrid.insertAdjacentHTML('afterbegin',<img class = "mini-poster">currentPoster.image</img>)
-
-
-// We need to target miniposter in the CSS file and pass values to it and then "show it"
-// To do this we need to make miniposter values in main js
-// add the css view of the grid template from js
-
-//element.insertAdjacentHTML()
-// 'afterbegin': Just inside the element, before its first child.
