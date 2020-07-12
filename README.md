@@ -97,10 +97,26 @@ Once poster is saved:
 Saved posters view:
 ![screenshot of saved posters section](/readme-imgs/saved.png)
 
-- When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array.
-- If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
-- When a user clicks the "Show Saved Posters" button, we should see the saved posters section
-- All the posters in the `savedPosters` array should be displayed in the saved posters grid section
+#### When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array
+
+  - Create a new variable called `savePoster and use a  `querySelector` to assign it to the `save-poster` class.
+  - Create an `eventListener` for the `savePoster` variable on click with a second argument of a new function called `saveCurrentPoster`.
+  - Create the `saveCurrentPoster` to `unshift` the `currentPoster` into the `savedPosters` array.
+
+#### If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
+
+  - Within the `saveCurrentPoster` function, create an `if statement` using the `.includes` method to disallow duplicate values from being passed into the `savedPosters` array.
+
+#### When a user clicks the "Show Saved Posters" button, we should see the saved posters section
+
+  - This should have been accomplished in Iteration 1.
+
+#### All the posters in the `savedPosters` array should be displayed in the saved posters grid section
+
+  - Create a new variable called `posterGrid` and use a `querySelector` method to assign it to the `saved-posters-grid` class.
+  - Use the `.insertAdjacentHTML` method on the `posterGrid` variable to create a new `mini-poster`class for `index.html` document.
+    - Within that class create an `article` tag that holds `h2`, `h4`, and `img` tag values associated with the properties of our `savedPosters` array.
+      - For example, `currentPoster.title` gets inserted into a new `mini-poster` `h2`
 
 ## Iteration 4 - Deleting Saved Posters
 
