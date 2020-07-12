@@ -186,8 +186,8 @@ function inputIndex(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', '<h2 class = "mini-poster">currentPoster.title</h2>')
-    posterGrid.insertAdjacentHTML('afterbegin', '<h4 class = "mini-poster">currentPoster.quote</h4>')
+    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"><img>${currentPoster.imageURL.assets}</img><h2>${currentPoster.title}</h2><h4>${currentPoster.quote}</h4></article>` )
+    // posterGrid.insertAdjacentHTML('afterbegin', `<h4 class = "mini-poster">${currentPoster.quote}</h4>`)
   };
 };
 
