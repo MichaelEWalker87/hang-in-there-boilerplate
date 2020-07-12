@@ -187,12 +187,13 @@ function inputIndex(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4> </article>`);
+    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster" id = "${currentPoster.id}"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4></article>`);
   };
 };
 
 function deleteSavedPoster(event) {
-
+  event.target('.mini-poster');
+  console.log(event.target('.mini-poster'));
 };
 //Add an eventListener to the mini-posters on double-click*
 // create a new function that will be the second argument of the eventListener*
