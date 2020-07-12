@@ -6,7 +6,7 @@ var showRandom = document.querySelector('.show-random');
 var showForm = document.querySelector('.show-form');
 var form = document.querySelector('.poster-form');
 var poster = document.querySelector('.main-poster');
-var showSaved = document.querySelector(`.show-saved`)
+var showSaved = document.querySelector(`.show-saved`);
 var savedPoster = document.querySelector('.saved-posters');
 var backToMain = document.querySelector('.back-to-main');
 var showMain = document.querySelector('.show-main');
@@ -15,7 +15,7 @@ var makePoster = document.querySelector('.make-poster');
 var inputPosterImg = document.querySelector('#poster-image-url');
 var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
-var posterGrid = document.querySelector('.saved-posters-grid')
+var posterGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -150,7 +150,7 @@ function displayCurrent(posterCurrent) {
   image.src = posterCurrent.imageURL;
 };
 
- loadRandom();
+loadRandom();
 
 function loadForm() {
   form.classList.remove('hidden');
@@ -186,6 +186,6 @@ function inputIndex(event) {
 function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"><img src = "${currentPoster.imageURL}"><h2>${currentPoster.title}</h2><h4>${currentPoster.quote}</h4></article>` )
+    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4> </article>`);
   };
 };
