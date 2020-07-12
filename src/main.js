@@ -115,7 +115,6 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-
 var currentPoster;
 var savedPosters = [];
 
@@ -129,6 +128,8 @@ backToMain.addEventListener('click', loadMain);
 showMain.addEventListener('click', nvmTakeMeBack);
 makePoster.addEventListener('click', inputIndex);
 savePoster.addEventListener('click', saveCurrentPoster);
+posterGrid.addEventListener('dbclick', deleteSavedPoster);
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -189,3 +190,10 @@ function saveCurrentPoster() {
     posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4> </article>`);
   };
 };
+
+function deleteSavedPoster(event) {
+
+};
+//Add an eventListener to the mini-posters on double-click*
+// create a new function that will be the second argument of the eventListener*
+//Research Event Bubbling
