@@ -1,4 +1,3 @@
-// query selector variables go here 👇
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
@@ -17,7 +16,6 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var posterGrid = document.querySelector('.saved-posters-grid');
 
-// we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -115,12 +113,8 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-
 var currentPoster;
 var savedPosters = [];
-
-
-// event listeners go here 👇
 
 showRandom.addEventListener('click', loadRandom);
 showForm.addEventListener('click', loadForm);
@@ -129,9 +123,8 @@ backToMain.addEventListener('click', loadMain);
 showMain.addEventListener('click', nvmTakeMeBack);
 makePoster.addEventListener('click', inputIndex);
 savePoster.addEventListener('click', saveCurrentPoster);
+posterGrid.addEventListener('dblclick', deleteSavedPoster);
 
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
@@ -144,13 +137,13 @@ function loadRandom() {
   displayCurrent(currentPoster);
 };
 
+loadRandom();
+
 function displayCurrent(posterCurrent) {
   title.innerText = posterCurrent.title;
   quote.innerText = posterCurrent.quote;
   image.src = posterCurrent.imageURL;
 };
-
-loadRandom();
 
 function loadForm() {
   form.classList.remove('hidden');
@@ -184,8 +177,24 @@ function inputIndex(event) {
 };
 
 function saveCurrentPoster() {
+  var articleMiniPoster = `
+    <article class="mini-poster" data-id="${currentPoster.id}">
+      <img src="${currentPoster.imageURL}">
+      <h2>${currentPoster.title}</h2>
+      <h4>${currentPoster.quote}</h4>
+    </article>`
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', `<article class = "mini-poster"> <img src = "${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4> </article>`);
+    posterGrid.insertAdjacentHTML('afterbegin', articleMiniPoster);
   };
+};
+
+function deleteSavedPoster(event) {
+    var htmlMiniPoster = event.target.closest(".mini-poster");
+    htmlMiniPoster.remove();
+    for (var i = 0; i < savedPosters.length; i++) {
+      if (htmlMiniPoster.dataset.id === `${savedPosters[i].id}`) {
+        savedPosters.splice(i, 1);
+      };
+    };
 };
