@@ -116,6 +116,7 @@ var quotes = [
 var currentPoster;
 var savedPosters = [];
 
+window.addEventListener('load', loadRandom);
 showRandom.addEventListener('click', loadRandom);
 showForm.addEventListener('click', loadForm);
 showSaved.addEventListener('click', loadSaved);
