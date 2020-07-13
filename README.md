@@ -70,7 +70,7 @@ Once poster is saved:
 
 #### On the new poster form view, users should be able to fill out the three input fields and then hit the save button
 
-- ##### When the save button is clicked, several things will happen:
+##### When the save button is clicked, several things will happen:
 
   - Add `eventListener` on click to `makePoster` variable with a second argument of `showPoster`
 
@@ -84,11 +84,11 @@ Once poster is saved:
 
   - Create a function for `showMyPoster` that targets `poster-image-url`, `poster-title`, and `poster-quote` and then creates an object instance of the `Poster` class called `madePoster` that takes in those input values.
 
-  - ##### Change back to the main poster view (hiding the form view again)
+##### Change back to the main poster view (hiding the form view again)
 
   - Add the `hidden` class back to the `form` variable, remove the `hidden` class to the `poster` variable, and uses the `event.preventDefault` method to stop the page from refreshing.
 
-  - ##### Display the newly created poster image, title, and quote in the main view
+##### Display the newly created poster image, title, and quote in the main view
 
   - Use `innerText` method on `title` and `quote` variables to show the first element of our `titles` and `quotes` arrays. Use the `src` method to do the same thing for the `images` array.
 
@@ -99,7 +99,7 @@ Saved posters view:
 
 #### When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array
 
-  - Create a new variable called `savePoster and use a  `querySelector` to assign it to the `save-poster` class.
+  - Create a new variable called `savePoster` and use a  `querySelector` to assign it to the `save-poster` class.
   - Create an `eventListener` for the `savePoster` variable on click with a second argument of a new function called `saveCurrentPoster`.
   - Create the `saveCurrentPoster` to `unshift` the `currentPoster` into the `savedPosters` array.
 
@@ -116,7 +116,7 @@ Saved posters view:
   - Create a new variable called `posterGrid` and use a `querySelector` method to assign it to the `saved-posters-grid` class.
   - Use the `.insertAdjacentHTML` method on the `posterGrid` variable to create a new `mini-poster`class for `index.html` document.
     - Within that class create an `article` tag that holds `h2`, `h4`, and `img` tag values associated with the properties of our `savedPosters` array.
-      - For example, `currentPoster.title` gets inserted into a new `mini-poster` `h2`
+      - For example, `currentPoster.title` gets inserted into a new `mini-poster` `h2`.
 
 ## Iteration 4 - Deleting Saved Posters
 
