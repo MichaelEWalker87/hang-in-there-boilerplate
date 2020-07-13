@@ -120,7 +120,12 @@ Saved posters view:
 
 ## Iteration 4 - Deleting Saved Posters
 
-- From the saved posters view, if a user double clicks a saved poster, it will be deleted
+#### From the saved posters view, if a user double clicks a saved poster, it will be deleted
+
+- Create a new `eventListener` for the `posterGrid` variable on a double click that takes in a second argument of `deleteSavedPoster` which will be the new function to handle the interactivity.
+- Create the `deleteSavedPoster` function to target the exact element area of the closest `.mini-poster` class by using the `event.target.closest` method and assign that to a new variable of `htmlMiniPoster`.
+- To remove a mini poster that is double clicked, use the `remove()` method on the `htmlMiniPoster` variable.
+- In order order to remove the internal data from the array of `savedPosters` when it is double clicked, run a `for loop` that runs to the length of the array. Within that loop, create an `if statement` that compares the `id`s of the `htmlMiniPoster` and the `savedPoster` array `id` at index `i`. Then remove the index value from the array with a `splice` method.
 
 _Hint: How will you update the data model to achieve this?_
 
