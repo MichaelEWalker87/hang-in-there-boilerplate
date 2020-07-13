@@ -187,19 +187,18 @@ function saveCurrentPoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
     posterGrid.insertAdjacentHTML('afterbegin', `<article class="mini-poster" data-id="${currentPoster.id}"> <img src="${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4></article>`);
+
   };
 };
 
 function deleteSavedPoster(event) {
-  if (event.target.closest(".mini-poster")) {
     var htmlMiniPoster = event.target.closest(".mini-poster");
+    htmlMiniPoster.remove();
     for (var i = 0; i < savedPosters.length; i++) {
       if (htmlMiniPoster.dataset.id === `${savedPosters[i].id}`) {
-      innerHTML = savedPosters.splice(i, 1)
-        // savedPosters.splice(i, 1);
-      }
+        savedPosters.splice(i, 1);
+      };
     }
-  };
 };
 
 
