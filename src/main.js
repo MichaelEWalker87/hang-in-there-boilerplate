@@ -1,4 +1,3 @@
-// query selector variables go here 👇
 var image = document.querySelector('.poster-img');
 var title = document.querySelector('.poster-title');
 var quote = document.querySelector('.poster-quote');
@@ -17,7 +16,6 @@ var inputPosterTitle = document.querySelector('#poster-title');
 var inputPosterQuote = document.querySelector('#poster-quote');
 var posterGrid = document.querySelector('.saved-posters-grid');
 
-// we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -118,9 +116,6 @@ var quotes = [
 var currentPoster;
 var savedPosters = [];
 
-
-// event listeners go here 👇
-
 showRandom.addEventListener('click', loadRandom);
 showForm.addEventListener('click', loadForm);
 showSaved.addEventListener('click', loadSaved);
@@ -130,8 +125,6 @@ makePoster.addEventListener('click', inputIndex);
 savePoster.addEventListener('click', saveCurrentPoster);
 posterGrid.addEventListener('dblclick', deleteSavedPoster);
 
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
@@ -144,13 +137,13 @@ function loadRandom() {
   displayCurrent(currentPoster);
 };
 
+loadRandom();
+
 function displayCurrent(posterCurrent) {
   title.innerText = posterCurrent.title;
   quote.innerText = posterCurrent.quote;
   image.src = posterCurrent.imageURL;
 };
-
-loadRandom();
 
 function loadForm() {
   form.classList.remove('hidden');
@@ -184,10 +177,15 @@ function inputIndex(event) {
 };
 
 function saveCurrentPoster() {
+  var articleMiniPoster = `
+    <article class="mini-poster" data-id="${currentPoster.id}">
+      <img src="${currentPoster.imageURL}">
+      <h2>${currentPoster.title}</h2>
+      <h4>${currentPoster.quote}</h4>
+    </article>`
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
-    posterGrid.insertAdjacentHTML('afterbegin', `<article class="mini-poster" data-id="${currentPoster.id}"> <img src="${currentPoster.imageURL}"> <h2>${currentPoster.title}</h2> <h4>${currentPoster.quote}</h4></article>`);
-
+    posterGrid.insertAdjacentHTML('afterbegin', articleMiniPoster);
   };
 };
 
@@ -198,10 +196,5 @@ function deleteSavedPoster(event) {
       if (htmlMiniPoster.dataset.id === `${savedPosters[i].id}`) {
         savedPosters.splice(i, 1);
       };
-    }
+    };
 };
-
-
-//Add an eventListener to the mini-posters on double-click*
-// create a new function that will be the second argument of the eventListener*
-//Research Event Bubbling
