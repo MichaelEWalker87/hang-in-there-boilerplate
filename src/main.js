@@ -138,8 +138,6 @@ function loadRandom() {
   displayCurrent(currentPoster);
 };
 
-loadRandom();
-
 function displayCurrent(posterCurrent) {
   title.innerText = posterCurrent.title;
   quote.innerText = posterCurrent.quote;
