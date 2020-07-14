@@ -116,6 +116,7 @@ var quotes = [
 var currentPoster;
 var savedPosters = [];
 
+window.addEventListener('load', loadRandom);
 showRandom.addEventListener('click', loadRandom);
 showForm.addEventListener('click', loadForm);
 showSaved.addEventListener('click', loadSaved);
@@ -177,12 +178,12 @@ function inputIndex(event) {
 };
 
 function saveCurrentPoster() {
-  var articleMiniPoster = `
-    <article class="mini-poster" data-id="${currentPoster.id}">
+  var articleMiniPoster =
+    `<article class="mini-poster" data-id="${currentPoster.id}">
       <img src="${currentPoster.imageURL}">
       <h2>${currentPoster.title}</h2>
       <h4>${currentPoster.quote}</h4>
-    </article>`
+    </article>`;
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.unshift(currentPoster);
     posterGrid.insertAdjacentHTML('afterbegin', articleMiniPoster);
