@@ -2,6 +2,9 @@
 
 A boilerplate repo.
 
+## About 
+This application was one of my first introductions to Javascript, CSS, and HTML. This application covers allowing a user to cycle throw a series of motivation poster images and slogans. If the user likes the Motivational poster, the user can save the poster. The application then will use local storage to save the poster in the show "Saved Poster" section. The user can also make a new poster in the "Make Your Own Poster" section. 
+
 ## Set Up
 
 1. One teammate: fork this repository
@@ -10,48 +13,48 @@ A boilerplate repo.
 4. `cd` into the repository
 5. Run `open index.html` to view it in the browser
 
-## Progression
+### Progression/Walk Through of Project Scope 
 
-### Iteration 0 - Main Page
+#### Iteration 0 - Main Page
 
 ![screenshot of saved posters page](https://i.imgur.com/PuQzuSi.gif)
 
-#### When the page loads, we should see a poster with a randomly selected image, title, and quote.
+##### When the page loads, we should see a poster with a randomly selected image, title, and quote.
 
   - Add `querySelectors` for all classes on `index.html`.
   - Create a `loadRandom` function that changes `innerText` of `title` and `quote` and `src` of `image`.
   - Create `loadRandom` function to pass `titles`, `quotes`, and `images` arrays through the `getRandomIndex` function.
 
 
-#### Every time the user clicks the Show Random Poster button, a new random poster is displayed.
+##### Every time the user clicks the Show Random Poster button, a new random poster is displayed.
 
   - Create an  `eventListener` on click for the `showRandom` variable that takes in a second argument of `loadRandom`
 
-### Iteration 1 - Switching Views
+#### Iteration 1 - Switching Views
 
 Form page:
 ![screenshot of form](/readme-imgs/form.png)
 
 Saved posters page (once working with extra saved posters):
 
-#### When a user clicks the "Make Your Own Poster" button, we should see the form, and the main poster should be hidden
+##### When a user clicks the "Make Your Own Poster" button, we should see the form, and the main poster should be hidden
 
   - Create a function that shows the the form by removing the `hidden` class from `form` and adding the `hidden` class on `poster`.
   - Create an `eventListener` on click for the `showForm` variable that takes in a second argument of `loadForm`.
 
-#### When a user clicks the "View Saved Posters" button, we should see the saved posters area, and the main poster should be hidden
+##### When a user clicks the "View Saved Posters" button, we should see the saved posters area, and the main poster should be hidden
 
   - Create a function that shows the saved poster page by removing the `hidden` class from `savedPosters` and adding the `hidden` class on `poster`.
   - Create an `eventListener` on click for the `showSaved` variable that takes in a second argument of `loadSaved`.
 
-#### When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the main poster section
+##### When a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the main poster section
 
   - Create a function that returns back to the main page from the saved page by adding the `hidden` class from `savedPoster` and removing the `hidden` class on `poster`. Then Create another function that does the same thing from the form page but this time adding the `hidden` class to `showMain`.
   - Create an `eventListener` on click for the `backToMain` variable that takes in a second argument of `loadMain`
   - Create an `eventListener` on click for the `showMain` variable that takes in a second argument of `nvmTakeMeBack`.
 
 
-#### In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
+##### In summary: Be able to switch between the three views (main poster, form, and saved posters) on the correct button clicks
 
 Gif that shows the toggling between screens
 
@@ -59,13 +62,13 @@ Gif that shows the toggling between screens
 
 _Hint: go check out the HTML and CSS files to see how the form and saved posters sections are being hidden in the first place_
 
-### Iteration 2 - Creating a New PosterForm being filled out:
+#### Iteration 2 - Creating a New PosterForm being filled out:
 
 Fillout form posters view:
 
 ![Gif of form working](https://i.imgur.com/VoWhhsR.gif)
 
-#### On the new poster form view, users should be able to fill out the three input fields and then hit the save button
+##### On the new poster form view, users should be able to fill out the three input fields and then hit the save button
 
 ##### When the save button is clicked, several things will happen:
 
@@ -89,35 +92,35 @@ Fillout form posters view:
 
   - Use `innerText` method on `title` and `quote` variables to show the first element of our `titles` and `quotes` arrays. Use the `src` method to do the same thing for the `images` array.
 
-## Iteration 3 - Saving & Viewing Posters
+#### Iteration 3 - Saving & Viewing Posters
 
 Saved posters view:
 ![screenshot of saved posters section](/readme-imgs/saved.png)
 
 ![Gif of saved posters section](https://i.imgur.com/SZ95axe.gif)
 
-#### When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array
+##### When a user clicks the "Save This Poster" button, the current main poster will be added to the `savedPosters` array
 
   - Create a new variable called `savePoster` and use a  `querySelector` to assign it to the `save-poster` class.
   - Create an `eventListener` for the `savePoster` variable on click with a second argument of a new function called `saveCurrentPoster`.
   - Create the `saveCurrentPoster` to `unshift` the `currentPoster` into the `savedPosters` array.
 
-#### If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
+##### If a user clicks the "Save This Poster" more than once on a single poster, it will still only be saved once (no duplicates)
 
   - Within the `saveCurrentPoster` function, create an `if statement` using the `.includes` method to disallow duplicate values from being passed into the `savedPosters` array.
 
-#### When a user clicks the "Show Saved Posters" button, we should see the saved posters section
+##### When a user clicks the "Show Saved Posters" button, we should see the saved posters section
 
   - This should have been accomplished in Iteration 1.
 
-#### All the posters in the `savedPosters` array should be displayed in the saved posters grid section
+##### All the posters in the `savedPosters` array should be displayed in the saved posters grid section
 
   - Create a new variable called `posterGrid` and use a `querySelector` method to assign it to the `saved-posters-grid` class.
   - Use the `.insertAdjacentHTML` method on the `posterGrid` variable to create a new `mini-poster`class for `index.html` document.
     - Within that class create an `article` tag that holds `h2`, `h4`, and `img` tag values associated with the properties of our `savedPosters` array.
       - For example, `currentPoster.title` gets inserted into a new `mini-poster` `h2`.
 
-## Iteration 4 - Deleting Saved Posters
+#### Iteration 4 - Deleting Saved Posters
 
 Delete posters view:
 
@@ -129,7 +132,7 @@ Delete posters view:
 
 _Hint: How will you update the data model to achieve this?_
 
-## Optional Extensions - Gettin' fancy
+#### Optional Extensions - Gettin' fancy
 
 Here's a list of possible extensions to implement - but **ONLY IF** your team has completed all the previous iterations **AND** have cleaned up your code to make it DRYer and more readable.
 
