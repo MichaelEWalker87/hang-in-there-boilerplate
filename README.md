@@ -1,6 +1,5 @@
 # Hang In There
 
-A boilerplate repo.
 
 ## About 
 This application was one of my first introductions to Javascript, CSS, and HTML. This application covers allowing a user to cycle throw a series of motivation poster images and slogans. If the user likes the Motivational poster, the user can save the poster. The application then will use local storage to save the poster in the show "Saved Poster" section. The user can also make a new poster in the "Make Your Own Poster" section. 
