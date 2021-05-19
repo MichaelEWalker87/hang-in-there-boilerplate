@@ -13,7 +13,7 @@ This application was one of my first introductions to Javascript, CSS, and HTML.
 4. `cd` into the repository
 5. Run `open index.html` to view it in the browser
 
-### Progression/Walk Through of Project Scope 
+### Progression/Walk Through of Project Steps 
 
 #### Iteration 0 - Main Page
 
